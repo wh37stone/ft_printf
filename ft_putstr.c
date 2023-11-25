@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 23:24:31 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/13 23:32:46 by joandre-         ###   ########.fr       */
+/*   Created: 2023/11/16 22:30:40 by joandre-          #+#    #+#             */
+/*   Updated: 2023/11/16 22:38:26 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static void	ft_printhex(unsigned long long n, int fd)
+size_t	ft_putstr(const char *format, size_t len)
 {
-	if (n >= 16)
-	{
-		ft_printhex(n / 16, fd);
-		ft_printhex(n % 16, fd);
-	}
-	if (n <= 9)
-		ft_putchar_fd(n + '0', fd);
-	else if (n < 16)
-		ft_putchar_fd(n - 10 + 'a', fd);
-}
+	char	*str;
+	size_t	size;
 
-void	ft_putaddr_fd(unsigned long long n, int fd)
-{
-	ft_putstr_fd("0x", fd);
-	ft_printhex(n, fd);
+	size = ft_strlen(format);
+	if (len == 0)
+		len = size;
+	str = malloc(len + 1);
+	if (!str)
+		return (0);
+	ft_strlcpy(str, format, len + 1);
+	size = ft_strlen(str);
+	ft_putstr_fd(str, 1);
+	free(str);
+	return (size);
 }

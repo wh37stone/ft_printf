@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_check_iterate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 02:22:33 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/10 02:38:07 by joandre-         ###   ########.fr       */
+/*   Created: 2023/11/16 02:32:48 by joandre-          #+#    #+#             */
+/*   Updated: 2023/11/16 15:06:38 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	ft_putunbr_fd(unsigned int n, int fd)
+size_t	ft_check_iterate(const char *format)
 {
-	if (n / 10)
+	size_t	i;
+
+	i = 0;
+	if (format[i++] == '.')
 	{
-		ft_putunbr_fd(n / 10, fd);
-		ft_putunbr_fd(n % 10, fd);
+		while (format[i] == 's' || format[i] == 'd' || format[i] == 'i'
+			|| format[i] == 'u' || format[i] == 'x' || format[i] == 'X'
+			|| format[i] == 'p' || (format[i] >= '0' && format[i] <= '9'))
+			i++;
 	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	return (i);
 }
-/*
-int	main(void)
-{
-  unsigned int	nbr[] = {UINT_MAX, 0, 12938127};
-  
-  for (int i = 0; i < 3; i++)
-  {
-	ft_putchar_fd('[', 1);
-	ft_putunbr_fd(nbr[i], 1);
-	ft_putstr_fd("]\t", 1);
-  }
-  ft_putchar_fd('\n', 1);
-  return (0);
-}*/

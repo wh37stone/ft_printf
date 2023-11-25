@@ -18,9 +18,13 @@
 # include <limits.h>
 
 int		ft_printf(const char *format, ...);
-void	ft_specifier(va_list fsrc, const char specifier);
-void	ft_putunbr_fd(unsigned int n, int fd);
-void	ft_puthex_fd(unsigned int n, const char specifier, int fd);
-void	ft_putaddr_fd(unsigned long long n, int fd);
+size_t	ft_putstr(const char *format, size_t len);
+size_t	ft_putnbr(int n, size_t len);
+size_t	ft_putunbr(unsigned int n, size_t len);
+size_t	ft_puthexa(unsigned long long n, size_t len, const char specifier);
+size_t	ft_specifier(va_list fsrc, const char *specifier);
+size_t	ft_dot_specifier(va_list fsrc, const char *specifier, size_t *iterate);
+size_t	ft_print_zero(size_t nsize, size_t len);
+size_t	ft_check_iterate(const char *format);
 
 #endif
