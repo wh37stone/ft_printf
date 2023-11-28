@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 17:58:33 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/25 19:37:00 by joandre-         ###   ########.fr       */
+/*   Created: 2023/11/16 22:39:54 by joandre-          #+#    #+#             */
+/*   Updated: 2023/11/25 22:12:58 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-static void	ft_output(unsigned int n)
+size_t	ft_putnbr_bonus(int n, size_t len)
 {
-	if (n / 10)
-	{
-		ft_output(n / 10);
-		ft_output(n % 10);
-	}
-	else if (n < 10)
-		ft_putchar_fd(n + '0', 1);
-}
+	size_t	nsize;
 
-size_t	ft_putunbr(unsigned int n)
-{
-	size_t			nsize;
-	unsigned int	num;
-
-	nsize = 0;
-	num = n;
-	if (n == 0)
-		nsize = 1;
-	while (n)
+	nsize = ft_strlen(ft_itoa(n));
+	if (n < 0)
 	{
-		n /= 10;
+		ft_putchar_fd('-', 1);
+		nsize -= 1;
+		if (n == -2147483648)
+		{
+			if (len > nsize)
+				nsize += ft_print_zero_bonus(nsize, len);
+			ft_putstr_fd("2147483648", 1);
+			return (nsize + 1);
+		}
+		n = -n;
 		nsize++;
 	}
-	ft_output(num);
+	if (len > nsize)
+		nsize += ft_print_zero_bonus(nsize, len);
+	ft_putnbr_fd(n, 1);
 	return (nsize);
 }

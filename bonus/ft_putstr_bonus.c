@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 17:23:16 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/25 19:43:32 by joandre-         ###   ########.fr       */
+/*   Created: 2023/11/16 22:30:40 by joandre-          #+#    #+#             */
+/*   Updated: 2023/11/25 22:13:43 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf_bonus.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+size_t	ft_putstr_bonus(const char *format, size_t len)
+{
+	char	*str;
+	size_t	size;
 
-# include "Libft/libft.h"
-# include <stdarg.h>
-# include <limits.h>
-
-int		ft_printf(const char *format, ...);
-size_t	ft_putstr(const char *format);
-size_t	ft_putnbr(int n);
-size_t	ft_putunbr(unsigned int n);
-size_t	ft_puthexa(unsigned long long n, const char specifier);
-size_t	ft_specifier(va_list fsrc, const char specifier);
-
-#endif
+	if (!format)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	size = ft_strlen(format);
+	if (len == 0)
+		len = size;
+	str = malloc(len + 1);
+	if (!str)
+		return (0);
+	ft_strlcpy(str, format, len + 1);
+	size = ft_strlen(str);
+	ft_putstr_fd(str, 1);
+	free(str);
+	return (size);
+}

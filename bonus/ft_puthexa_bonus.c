@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa.c                                       :+:      :+:    :+:   */
+/*   ft_puthexa_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:58:33 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/25 19:41:42 by joandre-         ###   ########.fr       */
+/*   Updated: 2023/11/25 22:13:58 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static void	ft_hexalloc(char c, char *hexa)
 {
@@ -50,20 +50,21 @@ static void	ft_long_hextoa(unsigned long long n, char *hexa)
 		ft_hexalloc(n - 10 + 'a', hexa);
 }
 
-static size_t	ft_puthexa_p(unsigned long long n, char *hexa)
+static size_t	ft_puthexa_ptr(unsigned long long n, char *hexa, size_t *len)
 {
 	if (n == 0)
 	{
 		hexa = NULL;
+		*len = 0;
 		ft_putstr_fd("(nil)", 1);
 		return (5);
 	}
 	ft_long_hextoa(n, hexa);
 	ft_putstr_fd("0x", 1);
-	return (2);
+	return (0);
 }
 
-size_t	ft_puthexa(unsigned long long n, const char specifier)
+size_t	ft_puthexa_bonus(unsigned long long n, size_t len, const char specifier)
 {
 	size_t	nsize;
 	char	*hexa;
@@ -75,9 +76,13 @@ size_t	ft_puthexa(unsigned long long n, const char specifier)
 	if (specifier == 'x' || specifier == 'X')
 		ft_hextoa(n, hexa, specifier);
 	else if (specifier == 'p')
-		nsize = ft_puthexa_p(n, hexa);
+		nsize = ft_puthexa_ptr(n, hexa, &len);
 	nsize += ft_strlen(hexa);
+	if (len > nsize)
+		nsize += ft_print_zero_bonus(nsize, len);
 	ft_putstr_fd(hexa, 1);
 	free(hexa);
+	if (specifier == 'p')
+		return (nsize + 2);
 	return (nsize);
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_check_iterate_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 17:23:16 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/25 19:43:32 by joandre-         ###   ########.fr       */
+/*   Created: 2023/11/16 02:32:48 by joandre-          #+#    #+#             */
+/*   Updated: 2023/11/25 20:41:47 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf_bonus.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+size_t	ft_check_iterate_bonus(const char *format)
+{
+	size_t	i;
 
-# include "Libft/libft.h"
-# include <stdarg.h>
-# include <limits.h>
-
-int		ft_printf(const char *format, ...);
-size_t	ft_putstr(const char *format);
-size_t	ft_putnbr(int n);
-size_t	ft_putunbr(unsigned int n);
-size_t	ft_puthexa(unsigned long long n, const char specifier);
-size_t	ft_specifier(va_list fsrc, const char specifier);
-
-#endif
+	i = 0;
+	if (format[i++] == '.')
+	{
+		while (format[i] == 's' || format[i] == 'd' || format[i] == 'i'
+			|| format[i] == 'u' || format[i] == 'x' || format[i] == 'X'
+			|| format[i] == 'p' || (format[i] >= '0' && format[i] <= '9'))
+			i++;
+	}
+	return (i);
+}
