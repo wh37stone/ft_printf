@@ -68,7 +68,7 @@ int	main(void)
 	cp = printf("[%%%%]\t[%%.]\n[%%s]\t[%.8s]\n[%%c]\t[%c]\n",
 			s, c);
 	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
-	cp = printf("[%%i]\t[%.15i]\n[%%d]\t[%.20d]\n[%%u]\t[%.25u]\n",
+	cp = printf("[%%i]\t[%.-15i]\n[%%d]\t[%.20d]\n[%%u]\t[%.25u]\n",
 			i, d, u);
 	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
 	cp = printf("[%%x]\t[%.30x]\n[%%X]\t[%.35X]\n[%%p]\t[%.35p]\n",
@@ -78,7 +78,7 @@ int	main(void)
 	cp = ft_printf("[%%%%]\t[%%.]\n[%%s]\t[%.8s]\n[%%c]\t[%c]\n",
 			s, c);
 	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
-	cp = ft_printf("[%%i]\t[%.15i]\n[%%d]\t[%.20d]\n[%%u]\t[%.25u]\n",
+	cp = ft_printf("[%%i]\t[%.-15i]\n[%%d]\t[%.20d]\n[%%u]\t[%.25u]\n",
 			i, d, u);
 	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
 	cp = ft_printf("[%%x]\t[%.30x]\n[%%X]\t[%.35X]\n[%%p]\t[%.35p]\n",

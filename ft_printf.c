@@ -56,7 +56,7 @@ int	main(void)
 	cp = printf("[%%%%]\t[%%]\n[%%s]\t[%s]\n[%%c]\t[%c]\n",
 			s, c);
 	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
-	cp = printf("[%%i]\t[%.i]\n[%%d]\t[%d]\n[%%u]\t[%u]\n",
+	cp = printf("[%%i]\t[%i]\n[%%d]\t[%d]\n[%%u]\t[%u]\n",
 			i, d, u);
 	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
 	cp = printf("[%%x]\t[%x]\n[%%X]\t[%X]\n[%%p]\t[%p]\n",

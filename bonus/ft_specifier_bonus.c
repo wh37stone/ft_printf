@@ -51,20 +51,25 @@ static size_t	ft_modot(const char *format, size_t *iterate)
 	return (++out);
 }
 
-size_t	ft_specifier_bonus(va_list fsrc, const char *specifier, size_t *iterate)
+static size_t	ft_len_check(const char *format, unsigned int *is_negative)
 {
-	size_t	len;
+	int	len;
+
+	len = ft_atoi(format);
+	if (len == 0)
+		return (0);
+	else if (len < 0)
+	{
+		len = 0;
+		*is_negative = 1;
+	}
+	return (len);
+}
+
+static size_t	ft_router(va_list fsrc, const char *specifier, size_t len)
+{
 	size_t	out;
 
-	len = atoi(++specifier);
-	if (len == 0)
-		--specifier;
-	while (*specifier != 'p' && *specifier != 'x' && *specifier != 'X'
-		&& *specifier != 'i' && *specifier != 'd' && *specifier != 'u'
-		&& *specifier != 's' && *specifier != '.' && *specifier != '%')
-		specifier++;
-	if (*specifier == '.')
-		out = ft_modot(--specifier, iterate);
 	if (*specifier == 's')
 		out = ft_putstr_bonus(va_arg(fsrc, char *), len);
 	else if (*specifier == 'i' || *specifier == 'd')
@@ -74,5 +79,28 @@ size_t	ft_specifier_bonus(va_list fsrc, const char *specifier, size_t *iterate)
 	else if (*specifier == 'x' || *specifier == 'X' || *specifier == 'p')
 		out = ft_puthexa_bonus(va_arg(fsrc, unsigned long long),
 				len, *specifier);
+	return (out);
+}
+
+size_t	ft_specifier_bonus(va_list fsrc, const char *specifier, size_t *iterate)
+{
+	size_t			len;
+	size_t			out;
+	unsigned int	is_negative;
+
+	is_negative = 0;
+	len = ft_len_check(++specifier, &is_negative);
+	while (*specifier != 'p' && *specifier != 'x' && *specifier != 'X'
+		&& *specifier != 'i' && *specifier != 'd' && *specifier != 'u'
+		&& *specifier != 's' && *specifier != '.' && *specifier != '%')
+		specifier++;
+	if (is_negative != 0)
+	{
+		ft_putstr_fd("%.0", 1);
+		return (3);
+	}
+	if (*specifier == '.')
+		out = ft_modot(--specifier, iterate);
+	out = ft_router(fsrc, specifier, len);
 	return (out);
 }
