@@ -73,6 +73,7 @@ size_t	ft_puthexa_bonus(unsigned long long n, size_t len, const char specifier)
 	hexa = malloc(16 + 1);
 	if (!hexa)
 		return (0);
+	ft_bzero(hexa, 17);
 	if (specifier == 'x' || specifier == 'X')
 		ft_hextoa(n, hexa, specifier);
 	else if (specifier == 'p')

@@ -51,19 +51,27 @@ static size_t	ft_modot(const char *format, size_t *iterate)
 	return (++out);
 }
 
-static size_t	ft_len_check(const char *format, unsigned int *is_negative)
+static size_t	ft_len_check(const char *format, unsigned int *is_valid)
 {
-	int	len;
+	int		len;
+	size_t	i;
 
+	i = 0;
 	len = ft_atoi(format);
-	if (len == 0)
-		return (0);
-	else if (len < 0)
+	if (len < 0)
 	{
 		len = 0;
-		*is_negative = 1;
+		*is_valid = 0;
 	}
-	return (len);
+	else
+	{
+		while (ft_isdigit(format[i]))
+			i++;
+		if (ft_isalpha(format[i]))
+			return (len);
+	}
+	*is_valid = 2;
+	return (i);
 }
 
 static size_t	ft_router(va_list fsrc, const char *specifier, size_t len)
@@ -86,21 +94,27 @@ size_t	ft_specifier_bonus(va_list fsrc, const char *specifier, size_t *iterate)
 {
 	size_t			len;
 	size_t			out;
-	unsigned int	is_negative;
+	unsigned int	is_valid;
 
-	is_negative = 0;
-	len = ft_len_check(++specifier, &is_negative);
-	while (*specifier != 'p' && *specifier != 'x' && *specifier != 'X'
-		&& *specifier != 'i' && *specifier != 'd' && *specifier != 'u'
-		&& *specifier != 's' && *specifier != '.' && *specifier != '%')
-		specifier++;
-	if (is_negative != 0)
+	out = 0;
+	is_valid = 1;
+	specifier++;
+	if (*specifier >= '0' && *specifier <= '9')
+		len = ft_len_check(specifier, &is_valid);
+	else
 	{
 		ft_putstr_fd("%.0", 1);
 		return (3);
 	}
+	if (is_valid == 2)
+		while (*specifier != '.')
+			specifier--;
+	while (*specifier != 'p' && *specifier != 'x' && *specifier != 'X'
+		&& *specifier != 'i' && *specifier != 'd' && *specifier != 'u'
+		&& *specifier != 's' && *specifier != '.' && *specifier != '%')
+		specifier++;
 	if (*specifier == '.')
-		out = ft_modot(--specifier, iterate);
-	out = ft_router(fsrc, specifier, len);
+		out += ft_modot(--specifier, iterate);
+	out += ft_router(fsrc, specifier, len);
 	return (out);
 }
