@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_bonus.c                                  :+:      :+:    :+:   */
+/*   putnbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 22:39:54 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/25 22:12:58 by joandre-         ###   ########.fr       */
+/*   Updated: 2023/11/25 19:36:37 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
-size_t	ft_putnbr_bonus(int n, size_t len)
+size_t	putnbr(int n)
 {
 	size_t	nsize;
 
@@ -22,16 +22,12 @@ size_t	ft_putnbr_bonus(int n, size_t len)
 		nsize -= 1;
 		if (n == -2147483648)
 		{
-			if (len > nsize)
-				nsize += ft_print_zero_bonus(nsize, len);
 			ft_putstr_fd("2147483648", 1);
 			return (nsize + 1);
 		}
 		n = -n;
 		nsize++;
 	}
-	if (len > nsize)
-		nsize += ft_print_zero_bonus(nsize, len);
 	ft_putnbr_fd(n, 1);
 	return (nsize);
 }

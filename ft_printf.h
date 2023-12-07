@@ -18,10 +18,10 @@
 # include <limits.h>
 
 int		ft_printf(const char *format, ...);
-size_t	ft_putstr(const char *format);
-size_t	ft_putnbr(int n);
-size_t	ft_putunbr(unsigned int n);
-size_t	ft_puthexa(unsigned long long n, const char specifier);
-size_t	ft_specifier(va_list fsrc, const char specifier);
+size_t	route_specifier(va_list fsrc, const char specifier);
+size_t	putstr(const char *format);
+size_t	putnbr(int n);
+size_t	putunbr(unsigned int n);
+size_t	puthexa(unsigned long long n, const char specifier);
 
 #endif

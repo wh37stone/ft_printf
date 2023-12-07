@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier.c                                     :+:      :+:    :+:   */
+/*   route_specifier.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-size_t	ft_specifier(va_list fsrc, const char specifier)
+size_t	route_specifier(va_list fsrc, const char specifier)
 {
 	size_t	out;
 
@@ -21,12 +21,12 @@ size_t	ft_specifier(va_list fsrc, const char specifier)
 	else if (specifier == 'c')
 		ft_putchar_fd(va_arg(fsrc, int), 1);
 	else if (specifier == 's')
-		out = ft_putstr(va_arg(fsrc, char *));
+		out = putstr(va_arg(fsrc, char *));
 	else if (specifier == 'i' || specifier == 'd')
-		out = ft_putnbr(va_arg(fsrc, int));
+		out = putnbr(va_arg(fsrc, int));
 	else if (specifier == 'u')
-		out = ft_putunbr(va_arg(fsrc, unsigned int));
+		out = putunbr(va_arg(fsrc, unsigned int));
 	else if (specifier == 'x' || specifier == 'X' || specifier == 'p')
-		out = ft_puthexa(va_arg(fsrc, unsigned long long), specifier);
+		out = puthexa(va_arg(fsrc, unsigned long long), specifier);
 	return (out);
 }

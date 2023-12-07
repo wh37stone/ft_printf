@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:11:49 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/25 20:31:11 by joandre-         ###   ########.fr       */
+/*   Updated: 2023/12/07 22:17:08 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -26,8 +26,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			out += ft_specifier(fsrc, format[i]);
+			out += route_specifier(fsrc, format[++i]);
 			i++;
 		}
 		else
@@ -42,36 +41,33 @@ int	ft_printf(const char *format, ...)
 /*
 int	main(void)
 {
-	int					c = 'L';
-	int					i = INT_MAX;
-	int					d = INT_MIN;
-	unsigned int		u = 0;
-	unsigned int		x = 4242424242;
-	unsigned int		X = UINT_MAX;
-	char				*s = "Suspendisse potenti.";
-	void				*p = malloc(sizeof(void *));
-	size_t				cp;
+	char			*s = "Suspendisse potenti.";
+	int				c = 'L';
+	int				i = INT_MAX;
+	int				d = INT_MIN;
+	unsigned int	u = 0;
+	unsigned int	x = UINT_MAX;
+	unsigned int	X = INT_MAX;
+	void			*p = malloc(sizeof(void *));
+	int				out = 0;;
 
 	printf("\t***\tORIGINAL\t***\n\n");
-	cp = printf("[%%%%]\t[%%]\n[%%s]\t[%s]\n[%%c]\t[%c]\n",
+	out += printf("[%%%%]\t[%%]\n[%%s]\t[%s]\n[%%c]\t[%c]\n",
 			s, c);
-	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
-	cp = printf("[%%i]\t[%i]\n[%%d]\t[%d]\n[%%u]\t[%u]\n",
+	out += printf("[%%i]\t[%i]\n[%%d]\t[%d]\n[%%u]\t[%u]\n",
 			i, d, u);
-	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
-	cp = printf("[%%x]\t[%x]\n[%%X]\t[%X]\n[%%p]\t[%p]\n",
+	out += printf("[%%x]\t[%x]\n[%%X]\t[%X]\n[%%p]\t[%p]\n",
 			x, X, p);
-	printf("[CHARACTERS PRINTED]\t[%zu]\n", cp);
+	printf("[CHARACTERS PRINTED]\t[%i]\n", out);
+	out = 0;
 	ft_printf("\n\n\t***\tFT_PRINTF\t***\n\n");
-	cp = ft_printf("[%%%%]\t[%%]\n[%%s]\t[%s]\n[%%c]\t[%c]\n",
+	out += ft_printf("[%%%%]\t[%%]\n[%%s]\t[%s]\n[%%c]\t[%c]\n",
 			s, c);
-	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
-	cp = ft_printf("[%%i]\t[%i]\n[%%d]\t[%d]\n[%%u]\t[%u]\n",
+	out += ft_printf("[%%i]\t[%i]\n[%%d]\t[%d]\n[%%u]\t[%u]\n",
 			i, d, u);
-	printf("[CHARACTERS PRINTED]\t[%zu]\n\n", cp);
-	cp = ft_printf("[%%x]\t[%x]\n[%%X]\t[%X]\n[%%p]\t[%p]\n",
+	out += ft_printf("[%%x]\t[%x]\n[%%X]\t[%X]\n[%%p]\t[%p]\n",
 			x, X, p);
-	printf("[CHARACTERS PRINTED]\t[%zu]\n", cp);
+	ft_printf("[CHARACTERS PRINTED]\t[%i]\n", out);
 	free(p);
 	return (0);
 }*/
