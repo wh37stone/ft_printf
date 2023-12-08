@@ -13,21 +13,9 @@
 
 size_t	putnbr(int n)
 {
-	size_t	nsize;
+	size_t	size;
 
-	nsize = ft_strlen(ft_itoa(n));
-	if (n < 0)
-	{
-		ft_putchar_fd('-', 1);
-		nsize -= 1;
-		if (n == -2147483648)
-		{
-			ft_putstr_fd("2147483648", 1);
-			return (nsize + 1);
-		}
-		n = -n;
-		nsize++;
-	}
+	size = ft_strlen(ft_itoa(n));
 	ft_putnbr_fd(n, 1);
-	return (nsize);
+	return (size);
 }

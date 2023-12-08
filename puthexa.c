@@ -64,20 +64,20 @@ static size_t	addrtoa(unsigned long long n, char *hexa)
 
 size_t	puthexa(unsigned long long n, const char specifier)
 {
-	size_t	nsize;
+	size_t	size;
 	char	*hexa;
 
-	nsize = 0;
+	size = 0;
 	hexa = malloc(16 + 1);
 	if (!hexa)
-		return (nsize);
+		return (size);
 	ft_bzero(hexa, 17);
 	if (specifier == 'x' || specifier == 'X')
 		hextoa(n, hexa, specifier);
 	else if (specifier == 'p')
-		nsize = addrtoa(n, hexa);
-	nsize += ft_strlen(hexa);
+		size = addrtoa(n, hexa);
+	size += ft_strlen(hexa);
 	ft_putstr_fd(hexa, 1);
 	free(hexa);
-	return (nsize);
+	return (size);
 }

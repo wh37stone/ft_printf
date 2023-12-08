@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:11:49 by joandre-          #+#    #+#             */
-/*   Updated: 2023/12/07 22:17:08 by joandre-         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:21:58 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -46,8 +46,8 @@ int	main(void)
 	int				i = INT_MAX;
 	int				d = INT_MIN;
 	unsigned int	u = 0;
-	unsigned int	x = UINT_MAX;
-	unsigned int	X = INT_MAX;
+	unsigned int	x = INT_MAX;
+	unsigned int	X = UINT_MAX;
 	void			*p = malloc(sizeof(void *));
 	int				out = 0;;
 
@@ -58,7 +58,7 @@ int	main(void)
 			i, d, u);
 	out += printf("[%%x]\t[%x]\n[%%X]\t[%X]\n[%%p]\t[%p]\n",
 			x, X, p);
-	printf("[CHARACTERS PRINTED]\t[%i]\n", out);
+	printf("[CHARACTERS PRINTED\t%i]\n", out);
 	out = 0;
 	ft_printf("\n\n\t***\tFT_PRINTF\t***\n\n");
 	out += ft_printf("[%%%%]\t[%%]\n[%%s]\t[%s]\n[%%c]\t[%c]\n",
@@ -67,7 +67,7 @@ int	main(void)
 			i, d, u);
 	out += ft_printf("[%%x]\t[%x]\n[%%X]\t[%X]\n[%%p]\t[%p]\n",
 			x, X, p);
-	ft_printf("[CHARACTERS PRINTED]\t[%i]\n", out);
+	ft_printf("[CHARACTERS PRINTED\t%i]\n", out);
 	free(p);
 	return (0);
 }*/
