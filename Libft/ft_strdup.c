@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 03:41:33 by joandre-          #+#    #+#             */
-/*   Updated: 2023/10/10 03:51:01 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:57:59 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -23,12 +23,3 @@ char	*ft_strdup(const char *src)
 	ft_memcpy(dst, src, size);
 	return (dst);
 }
-/*
-int	main(void)
-{
-	char	*str = "Duis sed auctor nibh.";
-
-	printf("ORIGINAL:\t[%s]\n", str);
-	printf("DUPLICATE:\t[%s]\n", ft_strdup(str));
-	return (0);
-}*/

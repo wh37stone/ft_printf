@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:00:27 by joandre-          #+#    #+#             */
-/*   Updated: 2023/10/13 22:03:46 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:52:43 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -65,12 +65,3 @@ char	*ft_itoa(int n)
 	num[size] = '\0';
 	return (num);
 }
-/*
-int	main(void)
-{
-	int	nbr[] = {-2147483648, 2147483647, 0, '\0', -41255};
-
-	for (int i = 0; i < 6; i++)
-		printf("[%s]\n", ft_itoa(nbr[i]));
-	return (0);
-}*/

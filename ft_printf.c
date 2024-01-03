@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:11:49 by joandre-          #+#    #+#             */
-/*   Updated: 2024/01/02 23:52:47 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 03:06:45 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -39,6 +39,9 @@ int	ft_printf(const char *format, ...)
 	return (out);
 }
 /*
+#include <stdio.h>
+#include <limits.h>
+
 int	main(void)
 {
 	char			*s = "Suspendisse potenti.";

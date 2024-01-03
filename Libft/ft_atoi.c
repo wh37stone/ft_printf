@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 01:43:04 by joandre-          #+#    #+#             */
-/*   Updated: 2023/10/10 02:31:53 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:50:47 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -33,12 +33,3 @@ int	ft_atoi(const char *c)
 	}
 	return (n * x);
 }
-/*
-int	main(void)
-{
-	char	*nbr[4] = {"-546:5", "  -----33-48", "+47", " 7210-2"};
-
-	for (int i = 0; i < 4; i++)
-		printf("[%d]\n", ft_atoi(nbr[i]));
-	return (0);
-}*/

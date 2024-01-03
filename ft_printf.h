@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:23:16 by joandre-          #+#    #+#             */
-/*   Updated: 2023/11/25 19:43:32 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:36:47 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "Libft/libft.h"
 # include <stdarg.h>
-# include <limits.h>
 
 int		ft_printf(const char *format, ...);
 size_t	route_specifier(va_list fsrc, const char specifier);

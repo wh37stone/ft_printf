@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:02:11 by joandre-          #+#    #+#             */
-/*   Updated: 2023/10/26 16:12:19 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:57:35 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -66,16 +66,3 @@ char	**ft_split(char const *s, char c)
 	ft_alloc(split, s, c);
 	return (split);
 }
-/*
-int	main(void)
-{
-	char	*str = "Nullam\thendrerit\tsem.";
-	char	**split = ft_split(str, '\t');
-
-	printf("ORIGINAL: [%s]\nRESULT:\t  ", str);
-	for (int i = 0; split[i]; i++)
-		printf("[%s]\t", split[i]);
-	printf("\n");
-	free(split);
-	return (0);
-}*/

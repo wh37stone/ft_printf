@@ -6,10 +6,12 @@
 #    By: joandre- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/16 01:36:57 by joandre-          #+#    #+#              #
-#    Updated: 2024/01/02 23:44:22 by joandre-         ###   ########.fr        #
+#    Updated: 2024/01/03 02:44:59 by joandre-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
+.SILENT:
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
        ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \

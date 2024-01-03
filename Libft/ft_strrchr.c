@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 01:14:28 by joandre-          #+#    #+#             */
-/*   Updated: 2023/10/10 01:15:29 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:59:51 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,14 +28,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	char	*str = "Aenean mattis non nunc vel cursus.";
-	int	ch = 'v';
-
-	printf("STRING:\t[%s]\n", str);
-	printf("CHAR:\t[%c]\n", ch);
-	printf("RESULT:\t[%s]\n", ft_strrchr(str, ch));
-	return (0);
-}*/

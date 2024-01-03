@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 00:54:47 by joandre-          #+#    #+#             */
-/*   Updated: 2023/10/15 01:51:01 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:56:57 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -31,16 +31,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
-/*
-int	main(void)
-{
-	int	nbr[] = {-2147483648, 2147483647, 325, -44, 300};
-
-	for (int i = 0; i < 5; i++)
-	{
-		ft_putchar_fd('[', 1);
-		ft_putnbr_fd(nbr[i], 1);
-		ft_putstr_fd("]\n", 1);
-	}
-	return (0);
-}*/

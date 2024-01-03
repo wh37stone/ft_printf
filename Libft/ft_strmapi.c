@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 18:28:10 by joandre-          #+#    #+#             */
-/*   Updated: 2023/10/26 15:32:49 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/03 02:59:15 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -32,17 +32,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-/*
-char	ft_next_char(unsigned int i, char c)
-{
-	if (c)
-		c += i;
-}
-int	main(void)
-{
-	char	*str = "Phasellus efficitur.";
-
-	printf("ORIGINAL:\t[%s]\n", str);
-	printf("MODIFIED:\t[%s]\n", ft_strmapi(str, &ft_next_char));
-	return (0);
-}*/
