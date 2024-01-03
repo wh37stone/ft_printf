@@ -6,7 +6,7 @@
 #    By: joandre- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 02:21:02 by joandre-          #+#    #+#              #
-#    Updated: 2024/01/03 02:48:07 by joandre-         ###   ########.fr        #
+#    Updated: 2024/01/03 04:16:54 by joandre-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 .SILENT:
@@ -16,6 +16,7 @@ NAME = libftprintf.a
 LIBFT = Libft/libft.a
 SRC = putstr.c putnbr.c putunbr.c puthexa.c route_specifier.c ft_printf.c
 OBJ = $(SRC:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
