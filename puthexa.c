@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:58:33 by joandre-          #+#    #+#             */
-/*   Updated: 2023/12/07 20:04:16 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:04:16 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -68,10 +68,9 @@ size_t	puthexa(unsigned long long n, const char specifier)
 	char	*hexa;
 
 	size = 0;
-	hexa = malloc(16 + 1);
+	hexa = (char *)ft_calloc(sizeof(char), 16 + 1);
 	if (!hexa)
 		return (size);
-	ft_bzero(hexa, 17);
 	if (specifier == 'x' || specifier == 'X')
 		hextoa(n, hexa, specifier);
 	else if (specifier == 'p')
